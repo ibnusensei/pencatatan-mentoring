@@ -14,4 +14,9 @@ class Program extends Model
     {
         return $this->hasMany(Mentor::class);
     }
+
+    public function getGetEndDateAttribute()
+    {
+        return date('d F Y', strtotime($this->end_date));
+    }
 }

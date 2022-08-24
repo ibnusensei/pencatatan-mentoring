@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\HomeController;
@@ -24,10 +25,11 @@ Route::get('data', [DataController::class, 'index']);
 
 Auth::routes();
 
-Route::middleware('role:user')->group(function() {
+Route::middleware('role:user')->group(function () {
     Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 });
 
-Route::middleware('role:admin')->name('admin.')->group(function() {
+Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function () {
     Route::get('admin', [AdminController::class, 'index'])->name('index');
+    Route::resource('program', ProgramController::class);
 });
