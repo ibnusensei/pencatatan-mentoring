@@ -16,6 +16,7 @@ class ProgramController extends Controller
     public function index()
     {
         $programs = Program::all();
+        return response()->json($programs);
         return view('admin.program.index', compact('programs'));
     }
 
