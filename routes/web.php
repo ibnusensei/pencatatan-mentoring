@@ -25,11 +25,15 @@ Route::get('data', [DataController::class, 'index']);
 
 Auth::routes();
 
-Route::middleware('role:user')->group(function() {
+Route::middleware('role:user')->group(function () {
     Route::get('dashboard', [HomeController::class, 'index'])->name('home');
 });
 
+<<<<<<< HEAD
+Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function () {
+=======
 Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function() {
+>>>>>>> b5f7697f9bc2b5b73bf7a77729e3167bce28dc64
     Route::get('admin', [AdminController::class, 'index'])->name('index');
     Route::resource('program', ProgramController::class);
 });
