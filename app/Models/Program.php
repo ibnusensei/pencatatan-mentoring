@@ -19,8 +19,6 @@ class Program extends Model
     {
         return date('d F Y', strtotime($this->end_date));
     }
-<<<<<<< HEAD
-=======
 
     public function getGetStartDateAttribute()
     {
@@ -31,5 +29,4 @@ class Program extends Model
     {
         return date('d F Y', strtotime($date));
     }
->>>>>>> b5f7697f9bc2b5b73bf7a77729e3167bce28dc64
 }

@@ -71,7 +71,6 @@ class ProgramController extends Controller
         $program = Program::find($id);
         $url = route('admin.program.update', $program->id);
         return view('admin.program.create', compact('program', 'url'));
-
     }
 
     /**
@@ -103,6 +102,10 @@ class ProgramController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $program = Program::findOrFail($id);
+
+        $program->delete();
+
+        return redirect()->route('admin.program.index');
     }
 }
